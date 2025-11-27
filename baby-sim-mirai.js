@@ -159,7 +159,7 @@ try{
     if(body.startsWith("baby") || body.startsWith("bby") || body.startsWith("janu")){
         const arr = body.replace(/^\S+\s*/, "")
       if(!arr) {
-                                     await api.sendMessage("Yes 😀, i am here ", event.threadID, (error, info) => {
+    return await api.sendMessage("Yes 😀, i am here ", event.threadID, (error, info) => {
           global.client.handleReply.push({
             name: this.config.name,
             type: "reply",
@@ -170,7 +170,7 @@ try{
       )
     }
     const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(arr)}&senderID=${event.senderID}&font=1`)).data.reply;     
-        await api.sendMessage(a, event.threadID, (error, info) => {
+      return  await api.sendMessage(a, event.threadID, (error, info) => {
           global.client.handleReply.push({
             name: this.config.name,
             type: "reply",
